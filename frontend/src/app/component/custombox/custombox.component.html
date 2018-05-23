@@ -1,0 +1,54 @@
+<!-- modal -->
+<div id="previewConfiguration"
+     class="modal animated bounceIn"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="modal-label"
+     aria-hidden="true">
+
+  <!-- dialog -->
+  <div class="modal-dialog">
+
+    <!-- content -->
+    <div class="modal-content">
+
+      <!-- header -->
+      <div class="modal-header">
+      <span id="modal-label" class="modal-title">{{ title }} </span><span class="subtitle">{{subtitle}}</span>
+      <i class="fa fa-times pull-right modal-close" data-dismiss="modal"></i>
+      </div>
+      <!-- header -->
+
+      <!-- body -->
+      <div class="modal-body">
+        <h2>{{configuration.name}}</h2>
+        <div class="container">
+            <div class="row col-md-6 col-md-offset-2 custyle">
+            <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+                    <tr *ngFor="let indicator of configuration.indicators">
+                        <td>{{ indicator.id }}</td>
+                        <td>{{ indicator.name }}</td>
+                        <td>{{ indicator.description }}</td>
+                    </tr>
+            </table>
+            </div>
+        </div>
+
+
+      </div>
+      <!-- body -->
+    </div>
+    <!-- content -->
+
+  </div>
+  <!-- dialog -->
+
+</div>
+<!-- modal -->

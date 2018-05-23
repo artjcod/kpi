@@ -1,0 +1,30 @@
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <form role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+        </form>
+        <ul id="side-menu" class="nav menu">
+          <li><a routerLink="welcome" routerLinkActive="active"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+          <li><a routerLink="/configuration/new" routerLinkActive="active"><em class="fa fa-list-alt">&nbsp;</em> Indicator Configuration</a></li>
+          <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+            <em class="fa fa-pie-chart">&nbsp;</em> Peformance Key Results <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-1">
+              <li><a class="" href="#">
+                <span>&nbsp;</span> Result by Indicator
+              </a></li>
+              <li><a class="" href="#">
+                <span>&nbsp;</span> Report by Indicator
+              </a></li>
+              <li><a class="" href="#">
+                <span>&nbsp;</span> Result Overview
+              </a></li>
+            </ul>
+          </li>
+          <li><a href="charts.html"><em class="fa fa-sliders">&nbsp;</em> Application Configuration</a></li>
+          <li><a href="elements.html"><em class="fa fa-lock">&nbsp;</em> SecurityConfiguration</a></li>
+          <li><a href="panels.html"><em class="fa fa-calendar-check-o">&nbsp;</em> Scheduler Configuration</a></li>
+          <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+        </ul>
+      </div>

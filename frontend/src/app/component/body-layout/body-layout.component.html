@@ -1,0 +1,56 @@
+  <div class="row custom-row">
+      <app-piechart-panel [title]="bluePieChartTitle" [htmlId]="bluePieChartId" [data_percent]="bluePieChartDataPercent"></app-piechart-panel>
+      <app-piechart-panel [title]="orangePieChartTitle" [htmlId]="orangePieChartId" [data_percent]="orangePieChartDataPercent"></app-piechart-panel>
+      <app-piechart-panel [title]="tealPieChartTitle" [htmlId]="tealPieChartId" [data_percent]="tealPieChartDataPercent"></app-piechart-panel>
+      <app-piechart-panel [title]="redPieChartTitle" [htmlId]="redPieChartId" [data_percent]="redPieChartDataPercent"></app-piechart-panel>
+  </div>   <!--/.row-->
+
+
+  <div class="row">
+    <app-enhanced-panel [cssClass]="'col-md-12'" ></app-enhanced-panel>
+  </div>   <!--/.row-->
+
+  <div class="row">
+      <app-enhanced-panel [cssClass]="'col-md-6'"></app-enhanced-panel>
+      <app-article [cssClass]="'col-md-6'"
+                   [settingTemplate]="settingtemplate"
+                   [withSetting]="true"
+                   [title]="'Last news'">
+                  </app-article>
+  </div><!--/.row-->
+
+
+  <div class="row">
+      <app-calendar-wrapper [cssClass]="'col-md-12'"></app-calendar-wrapper>
+  </div> <!--/.row-->
+  <div class="row">
+      <app-card-component [cssClass]="'col-md-4'"></app-card-component>
+      <app-card-component [cssClass]="'col-md-4'"></app-card-component>
+      <app-card-component [cssClass]="'col-md-4'"></app-card-component>
+  </div><!--/.row-->
+  <div class="row">
+    <app-chart [ChartType]="'bar'"
+               [ChartData]="ChartData"
+               [ChartLabels]="ChartLabels"
+               [ChartLegend]="ChartLegend"
+               [ChartOptions]="ChartOptions"
+               [ChartColors]="ChartColors"
+               [title]="'Statistiques'"
+               [subtitle]="'Stats of the year'"
+               [footerText]="'Created Today'"
+               [footerIconClass]="'fa fa-history'"
+               [cssClass]="'col-md-6'">
+              </app-chart>
+          <app-chart [ChartType]="'doughnut'"
+                     [ChartData]="doughnutChartData"
+                     [ChartLabels]="doughnutChartLabels"
+                     [ChartLegend]="ChartLegend"
+                     [ChartOptions]="ChartOptions"
+                     [ChartColors]="ChartColors"
+                     [title]="'Statistiques'"
+                     [subtitle]="'Stats of the year'"
+                     [footerText]="'Created Today'"
+                     [footerIconClass]="'fa fa-history'"
+                     [cssClass]="'col-md-6'">
+                    </app-chart>
+    </div><!--/.row-->

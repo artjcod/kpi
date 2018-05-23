@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Performance Key List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link   rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container">
+ <table class="table table-striped table-hover">
+  <tr>
+   <th>ID</th>
+   <th>Name</th>
+   <th>Description</th>
+   <th>Operations</th>
+  </tr>
+  <tr th:each="indicator: ${indicators}">
+      <td th:text="${indicator.id}"></td>
+      <td th:text="${indicator.name}"></td>
+      <td th:text="${indicator.description}"></td>
+      <td>
+          <a th:href="@{/indicator/__${indicator.id}__/operations}" th:text="'View Operations[' + ${indicator.getPerformanceKeyOperations().size()}+']'"></a>
+      </td>
+  </tr>
+ </table>
+</div>
+    
+
+ <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+ <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+ <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

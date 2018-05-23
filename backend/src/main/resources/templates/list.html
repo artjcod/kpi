@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link   rel='stylesheet' th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-12">
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a th:href="@{/indicator/__${performanceKey.id}__}">Performance Keys</a></li>
+                <li class="active">Operations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" th:text="${performanceKey.name}"></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">
+                                        <label class="col-xs-6 control-label">Number of Operations :</label>
+                                        <p class="form-control-static" th:text="${operations.size()}"></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-horizontal">
+                                        <label class="col-xs-6 control-label">Indicator Description : </label>
+                                        <p class="form-control-static" th:text="${performanceKey.description}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped custab">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Operations (Service | Query)</th>
+                                <th>CreationDate</th>
+                                <th>Creator User</th>
+                                <th>UpdateDate</th>
+                                <th>Updator User</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="operation: ${operations}">
+                                <td th:text="${operation.id}"></td>
+                                <td th:if="${operation.class.name.contains('QueryOperation')}">
+                                    <span class="label label-warning">Q</span>
+                                    <span class="operation-label" th:text="${operation.query}"></span>
+                                </td>
+                                <td th:unless="${operation.class.name.contains('QueryOperation')}">
+                                    <span class="label label-info">S</span>
+                                    <span class="operation-label" th:text="${operation.getServiceShortName()} +'|'+ ${operation.method}"></span>
+
+                                </td>
+                                </td>
+                                <td th:text="${operation.createdDate.get()}"></td>
+                                <td th:text="${operation.createdBy.get()}"></td>
+                                <td th:text="${operation.lastModifiedDate.get()}"></td>
+                                <td th:text="${operation.lastModifiedBy.get()}"></td>
+                                <td class="text-center">
+                                    <a class='btn btn-success btn-xs' href="#" title="Edit">
+                                        <span class="glyphicon glyphicon-pencil"></span></span>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-xs" title="Delete">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

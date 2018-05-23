@@ -1,0 +1,53 @@
+.chartcomp {
+ display: block;
+}
+
+.Ncard {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.Ncard .header {
+  padding: 15px 15px 0;
+}
+
+.Ncard .category {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9A9A9A;
+  margin-bottom: 0px;
+}
+
+.Ncard .category i {
+  font-size: 16px;
+}
+
+.Ncard .title {
+  margin: 0;
+  color: #333333;
+  font-weight: 300;
+}
+
+.Ncard .footer {
+  padding: 0;
+  background-color: transparent;
+  line-height: 30px;
+}
+
+.Ncard .stats {
+  color: #a9a9a9;
+}
+
+.Ncard .footer div {
+  display: inline-block;
+}
+.Ncard .footer hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.Ncard .content {
+  padding: 15px 15px 10px 15px;
+}
+

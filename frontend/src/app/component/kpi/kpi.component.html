@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default kpi-panel">
+      <div class="panel-heading">Create KPI configuration
+
+        <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="tooltip" title="Save configuration">
+            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save</button>
+
+        <button type="button" class="btn btn-default btn-xs pull-right" data-toggle="tooltip" title="Preview configuration" data-toggle="modal" data-target="#previewConfiguration">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Preview
+        </button>
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form">
+          <div class="form-group form-group-sm">
+            <label for="textinput">KPI configuration name</label>
+            <input name="name" [(ngModel)]="value.name" type="text" placeholder="Insert configuration name." class="form-control" required>
+          </div>
+
+          <div class="form-group  form-group-sm has-feedback">
+            <input type="text" placeholder="Search for a key" class="form-control">
+            <i class="glyphicon glyphicon-search form-control-feedback"></i>
+          </div>
+
+          <div id="indicator" class="container">
+            <div class="row">
+              <div *ngFor="let item of pagedItems" class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip">
+                  <div class="mainflip">
+                    <div class="frontside">
+                      <div class="kpi-card">
+                        <div class="kpi-card-body text-center">
+                          <p>
+                            <img class=" img-fluid" src="assets/images/kpi.jpg" alt="card image">
+                          </p>
+                          <h4 class="kpi-card-title">{{item.name}}</h4>
+                          <p class="kpi-card-text">{{item.description}}</p>
+                          <a class="btn btn-primary btn-sm" (click)="clickHandler(item)">
+                            <i  class="fa fa-plus" [ngClass]="{ 'fa-plus': !isClicked(item), 'fa-remove': isClicked(item)  }"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- ./row -->
+            </div>
+            <div class="row">
+              <div class="col-md-offset-4">
+                <!-- pager -->
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                  <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                  </li>
+                  <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                  </li>
+                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                  </li>
+                  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                  </li>
+                  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- ./column-->
+</div>
+<app-custombox [title]="'KPI'" [subtitle]="'Configuration'" [configuration]="value"></app-custombox>
